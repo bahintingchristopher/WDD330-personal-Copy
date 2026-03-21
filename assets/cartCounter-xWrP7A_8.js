@@ -1,0 +1,1 @@
+function n(){return(JSON.parse(localStorage.getItem("so-cart"))||[]).length}function c(){const e=n(),t=document.querySelector(".cart-count");t&&(t.textContent=e,e>0?t.classList.remove("hidden"):t.classList.add("hidden"))}export{c as u};
