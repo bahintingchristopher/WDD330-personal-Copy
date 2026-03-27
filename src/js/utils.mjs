@@ -47,7 +47,7 @@ export function renderWithTemplate(template, parentElement, data, callback) {
   }
 }
 
-export async function loadTemplate(path) {
+async function loadTemplate(path) {
   const res = await fetch(path);
   const template = await res.text();
   return template;
@@ -62,4 +62,28 @@ export async function loadHeaderFooter() {
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+}
+
+// for the unhappy alert
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+
+  //Set the contents: Use a <span> for the 'X' so it easy to target
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+
+  //The Listener Logic: We check if the clicked element (e.target) is our <span>
+  alert.addEventListener("click", function (e) {
+    // We check if the tag name is 'SPAN' (the X)
+    if (e.target.tagName === "SPAN") {
+      main.removeChild(this);
+    }
+  });
+
+  const main = document.querySelector("main");
+  main.prepend(alert);
+
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
 }
