@@ -434,6 +434,53 @@ img {
   padding: 0 10px;
 }
 
+/* ALERTS */
+.alert-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.alert-item {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  margin-bottom: 2px; /* Small gap between alerts */
+  font-weight: bold;
+}
+
+.alert-item:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.alert-message {
+  margin: 0;
+  flex: 1;
+  text-align: center;
+  font-size: 1rem; /* You can now easily control font size here */
+  line-height: 1.4;
+}
+
+/* close button of alert message */
+.alert-close {
+  cursor: pointer;
+  padding: 0 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease; /* Bonus: subtle hover effect */
+  user-select: none; /* Prevents user from accidentally highlighting the 'X' */
+}
+
+.alert-close:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
